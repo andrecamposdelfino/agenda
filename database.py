@@ -90,4 +90,9 @@ def insert(titulo, nota, data, status):
     cursor.execute(query, (titulo, nota, data, status))
     conexao.commit()
 
-
+def update(titulo, nota, data, status, id):
+    query = """
+        UPDATE lembrete SET titulo = ?, nota = ?, data = ?, status = ? WHERE id = ?
+    """
+    cursor.execute(query, (titulo, nota, data, status, id))
+    conexao.commit()

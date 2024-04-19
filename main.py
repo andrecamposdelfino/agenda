@@ -104,7 +104,28 @@ def showFormUpdate():
     form_update.txtTitulo.setText(titulo)
     form_update.txtNotas.setText(nota)
 
+# update tarefas
+def update():
+    id = form_update.txtId.text()
+    titulo = form_update.txtTitulo.text()
+    nota = form_update.txtNotas.text()
+    data = form_update.txtDt.text()
+    status = form_update.comboBox.currentText()
+    try:
+        db.update(titulo, nota, data, status, id)
+        msgInfo("Atualização concluida!")
+        
+        # recebo a lista com a soma dos registros programados
+        registro_programados = db.select_programados()
+        for registro_programado in registro_programados:
+            form_pricipal.lblTotalProgramado.setText(str(registro_programado[0]))
 
+        # recebo a lista com a soma dos registros concluidos
+        registro_concluidos = db.select_concluidos()
+        for registro_concluido in registro_concluidos:
+            form_pricipal.lblTotalConcluido.setText(str(registro_concluido[0]))
+    except Exception as error:
+        msgWarning(f"Error não foi possivel atualizar : {error}")
 
 
 # criar o app ( janela )
@@ -131,6 +152,7 @@ form_pricipal.btnVisualizarConcluido.clicked.connect(showListarConcluidos)
 form_listagem_programados.btnNovo.clicked.connect(showFormUpdate)
 form_lancamento.btnNovo.clicked.connect(inserir)
 form_lancamento.btnCancelar.clicked.connect(closeFormLancamento)
+form_update.btnSalvarUpdate.clicked.connect(update)
 
 # inicia o form principal
 form_pricipal.show()
