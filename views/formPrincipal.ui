@@ -121,7 +121,7 @@ font-size:22px;
     </property>
     <property name="styleSheet">
      <string notr="true">#frameHoje{
-background-color:#Dbdcd8;
+background-color:#fde685;
 border-radius:5px;
 
 }</string>
@@ -315,27 +315,6 @@ font-size:14px;
       <string>Todos</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="btnVisualizarTodos">
-     <property name="geometry">
-      <rect>
-       <x>170</x>
-       <y>50</y>
-       <width>91</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">#btnVisualizarTodos{
-background-color:transparent;
-}</string>
-     </property>
-     <property name="text">
-      <string>Visualizar lista</string>
-     </property>
-    </widget>
    </widget>
    <widget class="QFrame" name="frameConcluidos">
     <property name="geometry">
@@ -457,7 +436,7 @@ background-color:transparent;
      <rect>
       <x>10</x>
       <y>450</y>
-      <width>181</width>
+      <width>271</width>
       <height>41</height>
      </rect>
     </property>
@@ -482,7 +461,7 @@ font-family:sans-serif;
       <x>300</x>
       <y>60</y>
       <width>311</width>
-      <height>421</height>
+      <height>431</height>
      </rect>
     </property>
     <property name="styleSheet">

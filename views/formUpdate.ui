@@ -20,7 +20,7 @@
       <x>10</x>
       <y>60</y>
       <width>321</width>
-      <height>191</height>
+      <height>211</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -197,12 +197,12 @@ border-radius:5px;
      </property>
     </widget>
    </widget>
-   <widget class="QPushButton" name="btnNovo">
+   <widget class="QPushButton" name="btnSalvarUpdate">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>111</width>
+      <width>131</width>
       <height>31</height>
      </rect>
     </property>
@@ -222,13 +222,13 @@ border-radius:5px;
 }</string>
     </property>
     <property name="text">
-     <string>+ Novo Lembrete</string>
+     <string>+ Atualizar status</string>
     </property>
    </widget>
    <widget class="QPushButton" name="btnCancelar">
     <property name="geometry">
      <rect>
-      <x>130</x>
+      <x>140</x>
       <y>10</y>
       <width>91</width>
       <height>31</height>
@@ -251,6 +251,33 @@ border-radius:5px;
     </property>
     <property name="text">
      <string>- Cancelar</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="txtId">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>10</y>
+      <width>51</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#txtId{
+background-color:transparent;
+border:none;
+border-bottom:1px solid gray;
+padding:5px;
+
+}</string>
+    </property>
+    <property name="placeholderText">
+     <string/>
     </property>
    </widget>
   </widget>

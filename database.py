@@ -58,7 +58,29 @@ def select_total_programadas():
     dados_rsult = cursor.fetchall()
     return dados_rsult
 
+def select_programados():
+    query = """
+        SELECT count(*) FROM lembrete WHERE status = "Programados"
+    """
+    cursor.execute(query)
+    dados_rsult = cursor.fetchall()
+    return dados_rsult
 
+def select_concluidos():
+    query = """
+        SELECT count(*) FROM lembrete WHERE status = "Concluidos"
+    """
+    cursor.execute(query)
+    dados_rsult = cursor.fetchall()
+    return dados_rsult
+
+def select_all_concluidos():
+    query = """
+        SELECT * FROM lembrete WHERE status = "Concluidos"
+    """
+    cursor.execute(query)
+    dados_rsult = cursor.fetchall()
+    return dados_rsult
 
 
 def insert(titulo, nota, data, status):

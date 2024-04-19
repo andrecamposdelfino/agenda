@@ -18,7 +18,6 @@ def msgWarning(msg):
         msg
     )
 
-
 # funcao para carregar o formulario de lancamnto
 def showFormLancamento():
     form_lancamento.show()
@@ -41,7 +40,6 @@ def showFormListarHoje():
             except Exception as error:
                 print(f"Error ao tentar listar : {error}")
 
-
 # carrega o fomulario que lista as tarefas programadas
 def showFormListaProgramados():
     form_listagem_programados.show()
@@ -55,6 +53,19 @@ def showFormListaProgramados():
             except Exception as error:
                 print(f"Error ao tentar listar : {error}")
 
+# carrega os dados concluidos
+def showListarConcluidos():
+    form_listagem_concluidos.show()
+    dados = db.select_all_concluidos()
+    form_listagem_concluidos.dgvDadosConcluidos.setRowCount(len(dados))
+    form_listagem_concluidos.dgvDadosConcluidos.setColumnCount(5)
+    for linha in range(0, len(dados)):
+        for coluna in range(0, 5):
+            try:
+                form_listagem_concluidos.dgvDadosConcluidos.setItem(linha, coluna, QtWidgets.QTableWidgetItem(
+                    str(dados[linha][coluna])))
+            except Exception as error:
+                print(f"Error ao tentar listar : {error}")
 
 # salvar um novo lembrete
 def inserir():
@@ -81,6 +92,20 @@ def inserir():
     except Exception as error:
         msgWarning(f"Error ao tentar salvar o lembrete : {error}")
 
+# chama o formulario update e pegos os dados do listview
+def showFormUpdate():
+    form_update.show()
+    dados = form_listagem_programados.dgvDadosProgramados.selectedItems()
+    id = dados[0].text()
+    titulo = dados[1].text()
+    nota = dados[2].text()
+
+    form_update.txtId.setText(id)
+    form_update.txtTitulo.setText(titulo)
+    form_update.txtNotas.setText(nota)
+
+
+
 
 # criar o app ( janela )
 app = QtWidgets.QApplication([])
@@ -91,26 +116,21 @@ form_lancamento = uic.loadUi("./views/formLancamento.ui")
 form_listagem_hoje = uic.loadUi("./views/formListarHoje.ui")
 form_listagem_programados = uic.loadUi("./views/formListarProgramados.ui")
 form_listagem_concluidos = uic.loadUi("./views/formListarConcluidos.ui")
-form_listagem_todos = uic.loadUi("./views/formListarTodos.ui")
+form_update = uic.loadUi("./views/formUpdate.ui")
+
 
 # botao novo chamando a funcao para carregr o form
-form_pricipal.btnNovo.clicked.connect(
-    showFormLancamento
-)
+form_pricipal.btnNovo.clicked.connect(showFormLancamento)
 
 # botoes do formulario principal
 form_pricipal.btnVisualizarHoje.clicked.connect(showFormListarHoje)
 form_pricipal.btnVisualizarProgramados.clicked.connect(showFormListaProgramados)
-form_pricipal.btnVisualizarConcluido.clicked.connect(showFormListarHoje)
-form_pricipal.btnVisualizarTodos.clicked.connect(showFormListarHoje)
+form_pricipal.btnVisualizarConcluido.clicked.connect(showListarConcluidos)
 
-form_lancamento.btnNovo.clicked.connect(
-    inserir
-)
-
-form_lancamento.btnCancelar.clicked.connect(
-    closeFormLancamento
-)
+# botoes dos formularios de listagem
+form_listagem_programados.btnNovo.clicked.connect(showFormUpdate)
+form_lancamento.btnNovo.clicked.connect(inserir)
+form_lancamento.btnCancelar.clicked.connect(closeFormLancamento)
 
 # inicia o form principal
 form_pricipal.show()
@@ -121,12 +141,21 @@ for registro in todos_os_registro:
     form_pricipal.lblTotalTodos.setText(str(registro[0]))
 
 
-# recebo a lista com dados conforme a data do formulario e faco uma ontagem por data
+# recebo a lista com a soma dos registros por data
 data = form_pricipal.txtDt.text()
 registro_datas = db.select_data(data)
 for registro_data in registro_datas:
     form_pricipal.lblTotalHoje.setText(str(registro_data[0]))
 
+# recebo a lista com a soma dos registros programados
+registro_programados = db.select_programados()
+for registro_programado in registro_programados:
+    form_pricipal.lblTotalProgramado.setText(str(registro_programado[0]))
+
+# recebo a lista com a soma dos registros concluidos
+registro_concluidos = db.select_concluidos()
+for registro_concluido in registro_concluidos:
+    form_pricipal.lblTotalConcluido.setText(str(registro_concluido[0]))
 
 # executa o app
 app.exec()
