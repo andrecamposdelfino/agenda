@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>621</width>
-    <height>480</height>
+    <height>519</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -65,15 +65,59 @@ font-size:22px;
       <string>Agenda</string>
      </property>
     </widget>
+    <widget class="QDateEdit" name="txtDt">
+     <property name="geometry">
+      <rect>
+       <x>499</x>
+       <y>10</y>
+       <width>111</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#txtDt{
+
+}</string>
+     </property>
+     <property name="buttonSymbols">
+      <enum>QAbstractSpinBox::UpDownArrows</enum>
+     </property>
+     <property name="dateTime">
+      <datetime>
+       <hour>0</hour>
+       <minute>0</minute>
+       <second>0</second>
+       <year>2024</year>
+       <month>4</month>
+       <day>19</day>
+      </datetime>
+     </property>
+     <property name="calendarPopup">
+      <bool>true</bool>
+     </property>
+     <property name="timeSpec">
+      <enum>Qt::LocalTime</enum>
+     </property>
+     <property name="date">
+      <date>
+       <year>2024</year>
+       <month>4</month>
+       <day>19</day>
+      </date>
+     </property>
+    </widget>
    </widget>
    <widget class="QFrame" name="frameHoje">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>90</y>
-      <width>120</width>
+      <y>60</y>
+      <width>271</width>
       <height>80</height>
      </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">#frameHoje{
@@ -110,10 +154,10 @@ border-radius:5px;
     <widget class="QLabel" name="lblTotalHoje">
      <property name="geometry">
       <rect>
-       <x>70</x>
-       <y>0</y>
+       <x>130</x>
+       <y>10</y>
        <width>47</width>
-       <height>31</height>
+       <height>51</height>
       </rect>
      </property>
      <property name="font">
@@ -126,7 +170,7 @@ border-radius:5px;
       <string notr="true">#lblTotalHoje{
 color:#484848;
 font-family:sans-serif;
-font-size:20px;
+font-size:40px;
 }</string>
      </property>
      <property name="text">
@@ -156,95 +200,25 @@ font-size:14px;
       <string>Hoje</string>
      </property>
     </widget>
-   </widget>
-   <widget class="QFrame" name="frameProgramados">
-    <property name="geometry">
-     <rect>
-      <x>150</x>
-      <y>90</y>
-      <width>120</width>
-      <height>80</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">#frameProgramados{
-background-color:#Dbdcd8;
-border-radius:5px;
-
-}</string>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-    <widget class="QLabel" name="lblCalendario_3">
+    <widget class="QPushButton" name="btnVisualizarHoje">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>10</y>
-       <width>41</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap>../imagens/calendario-linhas-caneta.png</pixmap>
-     </property>
-     <property name="scaledContents">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QLabel" name="lblTotalProgramado">
-     <property name="geometry">
-      <rect>
-       <x>70</x>
-       <y>0</y>
-       <width>47</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>sans-serif</family>
-       <pointsize>-1</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">#lblTotalProgramado{
-color:#484848;
-font-family:sans-serif;
-font-size:20px;
-}</string>
-     </property>
-     <property name="text">
-      <string>2</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="lblProgramado">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
+       <x>180</x>
        <y>50</y>
        <width>91</width>
-       <height>21</height>
+       <height>23</height>
       </rect>
      </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
      <property name="styleSheet">
-      <string notr="true">#lblProgramado{
-color:#484848;
-font-family:sans-serif;
-font-size:14px;
+      <string notr="true">#btnVisualizarHoje{
+background-color:transparent;
 }</string>
      </property>
      <property name="text">
-      <string>Programados</string>
+      <string>Visualizar lista</string>
      </property>
     </widget>
    </widget>
@@ -252,10 +226,13 @@ font-size:14px;
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>190</y>
-      <width>120</width>
+      <y>360</y>
+      <width>271</width>
       <height>80</height>
      </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">#frameTodos{
@@ -292,10 +269,10 @@ border-radius:5px;
     <widget class="QLabel" name="lblTotalTodos">
      <property name="geometry">
       <rect>
-       <x>70</x>
-       <y>0</y>
+       <x>130</x>
+       <y>10</y>
        <width>47</width>
-       <height>31</height>
+       <height>51</height>
       </rect>
      </property>
      <property name="font">
@@ -308,7 +285,7 @@ border-radius:5px;
       <string notr="true">#lblTotalTodos{
 color:#484848;
 font-family:sans-serif;
-font-size:20px;
+font-size:40px;
 }</string>
      </property>
      <property name="text">
@@ -338,15 +315,39 @@ font-size:14px;
       <string>Todos</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="btnVisualizarTodos">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>50</y>
+       <width>91</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#btnVisualizarTodos{
+background-color:transparent;
+}</string>
+     </property>
+     <property name="text">
+      <string>Visualizar lista</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QFrame" name="frameConcluidos">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>190</y>
-      <width>120</width>
+      <x>10</x>
+      <y>260</y>
+      <width>271</width>
       <height>80</height>
      </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">#frameConcluidos{
@@ -383,10 +384,10 @@ border-radius:5px;
     <widget class="QLabel" name="lblTotalConcluido">
      <property name="geometry">
       <rect>
-       <x>70</x>
-       <y>0</y>
+       <x>130</x>
+       <y>10</y>
        <width>47</width>
-       <height>31</height>
+       <height>51</height>
       </rect>
      </property>
      <property name="font">
@@ -399,7 +400,7 @@ border-radius:5px;
       <string notr="true">#lblTotalConcluido{
 color:#484848;
 font-family:sans-serif;
-font-size:20px;
+font-size:40px;
 }</string>
      </property>
      <property name="text">
@@ -429,12 +430,33 @@ font-size:14px;
       <string>Concluidos</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="btnVisualizarConcluido">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>50</y>
+       <width>91</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#btnVisualizarConcluido{
+background-color:transparent;
+}</string>
+     </property>
+     <property name="text">
+      <string>Visualizar lista</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QPushButton" name="btnNovo">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>410</y>
+      <y>450</y>
       <width>181</width>
       <height>41</height>
      </rect>
@@ -451,16 +473,16 @@ font-family:sans-serif;
 }</string>
     </property>
     <property name="text">
-     <string>+ Novo Lançamento</string>
+     <string>+ Nova Tarefa</string>
     </property>
    </widget>
    <widget class="QLabel" name="lblImg">
     <property name="geometry">
      <rect>
       <x>300</x>
-      <y>90</y>
+      <y>60</y>
       <width>311</width>
-      <height>361</height>
+      <height>421</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -477,6 +499,122 @@ border-radius:8px;
     <property name="scaledContents">
      <bool>true</bool>
     </property>
+   </widget>
+   <widget class="QFrame" name="frameProgramado">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>160</y>
+      <width>271</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#frameProgramado{
+background-color:#Dbdcd8;
+border-radius:5px;
+
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="lblCalendario_6">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>41</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../imagens/calendario-linhas-caneta.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblTotalProgramado">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>10</y>
+       <width>47</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>sans-serif</family>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#lblTotalProgramado{
+color:#484848;
+font-family:sans-serif;
+font-size:40px;
+}</string>
+     </property>
+     <property name="text">
+      <string>2</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblProgramados">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>50</y>
+       <width>91</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#lblProgramados
+{
+color:#484848;
+font-family:sans-serif;
+font-size:14px;
+}</string>
+     </property>
+     <property name="text">
+      <string>Programados</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnVisualizarProgramados">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>50</y>
+       <width>91</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#btnVisualizarProgramados{
+background-color:transparent;
+}</string>
+     </property>
+     <property name="text">
+      <string>Visualizar lista</string>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

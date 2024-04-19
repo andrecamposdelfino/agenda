@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>339</width>
-    <height>296</height>
+    <height>282</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -131,6 +131,71 @@ padding:5px;
       </date>
      </property>
     </widget>
+    <widget class="QLabel" name="lblEscolha">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>120</y>
+       <width>101</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#lblEscolha{
+color:#484848;
+font-family:sans-serif;
+border-radius:5px;
+}</string>
+     </property>
+     <property name="text">
+      <string>Escolha uma data</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="comboBox">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>150</y>
+       <width>161</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#comboBox{
+padding:5px;
+}</string>
+     </property>
+     <item>
+      <property name="text">
+       <string>Programados</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Concluidos</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="lblStatus">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>120</y>
+       <width>101</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#lblStatus{
+color:#484848;
+font-family:sans-serif;
+border-radius:5px;
+}</string>
+     </property>
+     <property name="text">
+      <string>Status</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QPushButton" name="btnNovo">
     <property name="geometry">
@@ -189,17 +254,6 @@ border-radius:5px;
     </property>
    </widget>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>339</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>

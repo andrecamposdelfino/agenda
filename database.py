@@ -9,11 +9,13 @@ def criar_tabela():
             id INTEGER  PRIMARY KEY AUTOINCREMENT,
             titulo VARCHAR(60) NOT NULL,
             nota VARCHAR(155) NOT NULL,
-            data VARCHAR(60) NOT NULL
+            data VARCHAR(60) NOT NULL,
+            status VRCHAR(60) NOT NULL
         )
     """
     cursor.execute(query)
     conexao.commit()
+
 
 
 def select():
@@ -24,11 +26,46 @@ def select():
     dados_rsult = cursor.fetchall()
     print(dados_rsult)
 
-def insert(titulo, nota, data):
+def select_count():
     query = """
-        INSERT INTO lembrete(titulo, nota, data)VALUES(?,?,?)
+        SELECT count(*) FROM lembrete
     """
-    cursor.execute(query, (titulo, nota, data))
+    cursor.execute(query)
+    dados_rsult = cursor.fetchall()
+    return dados_rsult
+
+def select_data(data):
+    query = f"""
+        SELECT count(*) FROM lembrete WHERE data = "{data}"
+    """
+    cursor.execute(query)
+    dados_rsult = cursor.fetchall()
+    return dados_rsult
+
+def select_total_datas(data):
+    query = f"""
+        SELECT * FROM lembrete WHERE data = "{data}"
+    """
+    cursor.execute(query)
+    dados_rsult = cursor.fetchall()
+    return dados_rsult
+
+def select_total_programadas():
+    query = """
+        SELECT * FROM lembrete WHERE status = "Programados"
+    """
+    cursor.execute(query)
+    dados_rsult = cursor.fetchall()
+    return dados_rsult
+
+
+
+
+def insert(titulo, nota, data, status):
+    query = """
+        INSERT INTO lembrete(titulo, nota, data, status)VALUES(?,?,?, ?)
+    """
+    cursor.execute(query, (titulo, nota, data, status))
     conexao.commit()
 
 
