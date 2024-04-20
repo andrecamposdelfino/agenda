@@ -2,6 +2,10 @@
 from PyQt5 import uic, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 import database as db
+import datetime
+
+data = datetime.datetime.now()
+data_formatada = data.strftime("%d/%m/%Y")
 
 # mensagens do sistema
 def msgInfo(msg):
@@ -29,6 +33,7 @@ def closeFormLancamento():
 # carrega o fomulario que lista as tarefas do dia
 def showFormListarHoje():
     form_listagem_hoje.show()
+    form_listagem_hoje.setFixedSize(531, 220)
     data = form_pricipal.txtDt.text()
     dados = db.select_total_datas(data)
     form_listagem_hoje.dgvDadosHoje.setRowCount(len(dados))
@@ -43,6 +48,7 @@ def showFormListarHoje():
 # carrega o fomulario que lista as tarefas programadas
 def showFormListaProgramados():
     form_listagem_programados.show()
+    form_listagem_programados.setFixedSize(531, 220)
     dados = db.select_total_programadas()
     form_listagem_programados.dgvDadosProgramados.setRowCount(len(dados))
     form_listagem_programados.dgvDadosProgramados.setColumnCount(5)
@@ -56,6 +62,7 @@ def showFormListaProgramados():
 # carrega os dados concluidos
 def showListarConcluidos():
     form_listagem_concluidos.show()
+    form_listagem_concluidos.setFixedSize(531, 220)
     dados = db.select_all_concluidos()
     form_listagem_concluidos.dgvDadosConcluidos.setRowCount(len(dados))
     form_listagem_concluidos.dgvDadosConcluidos.setColumnCount(5)
@@ -85,6 +92,11 @@ def inserir():
             registro_datas = db.select_data(data)
             for registro_data in registro_datas:
                 form_pricipal.lblTotalHoje.setText(str(registro_data[0]))
+
+            # recebo a lista com a soma dos registros programados
+            registro_programados = db.select_programados()
+            for registro_programado in registro_programados:
+                form_pricipal.lblTotalProgramado.setText(str(registro_programado[0]))
 
             msgInfo("Lancamento concluido!!")
         else:
@@ -124,6 +136,12 @@ def update():
         registro_concluidos = db.select_concluidos()
         for registro_concluido in registro_concluidos:
             form_pricipal.lblTotalConcluido.setText(str(registro_concluido[0]))
+
+
+        registro_datas = db.select_data(data)
+        for registro_data in registro_datas:
+            form_pricipal.lblTotalHoje.setText(str(registro_data[0]))
+
     except Exception as error:
         msgWarning(f"Error não foi possivel atualizar : {error}")
 
@@ -156,6 +174,8 @@ form_update.btnSalvarUpdate.clicked.connect(update)
 
 # inicia o form principal
 form_pricipal.show()
+form_pricipal.setFixedSize(621, 519)
+form_pricipal.txtDt.setText(data_formatada)
 
 # recebo todos os lancamntos e faco uma contagem
 todos_os_registro = db.select_count()

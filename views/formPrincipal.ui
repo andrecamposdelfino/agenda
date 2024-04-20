@@ -65,45 +65,17 @@ font-size:22px;
       <string>Agenda</string>
      </property>
     </widget>
-    <widget class="QDateEdit" name="txtDt">
+    <widget class="QLineEdit" name="txtDt">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
-       <x>499</x>
+       <x>532</x>
        <y>10</y>
-       <width>111</width>
+       <width>81</width>
        <height>25</height>
       </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">#txtDt{
-
-}</string>
-     </property>
-     <property name="buttonSymbols">
-      <enum>QAbstractSpinBox::UpDownArrows</enum>
-     </property>
-     <property name="dateTime">
-      <datetime>
-       <hour>0</hour>
-       <minute>0</minute>
-       <second>0</second>
-       <year>2024</year>
-       <month>4</month>
-       <day>19</day>
-      </datetime>
-     </property>
-     <property name="calendarPopup">
-      <bool>true</bool>
-     </property>
-     <property name="timeSpec">
-      <enum>Qt::LocalTime</enum>
-     </property>
-     <property name="date">
-      <date>
-       <year>2024</year>
-       <month>4</month>
-       <day>19</day>
-      </date>
      </property>
     </widget>
    </widget>
